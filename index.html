@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Onyx — a midnight-cherry agent harness for your VM</title>
+    <meta name="description" content="Onyx lives on your VM. It gives a model hands — shell, files, screenshots, mouse and keyboard — and lets you reach it from a voice-first desktop app, Telegram, or a terminal." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238e0e2e'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3d6e'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav">
+      <div class="brand"><span class="mark">◍</span><span>ONYX</span></div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#start">Quick start</a>
+        <a href="#screens">Screens</a>
+        <a href="https://github.com/reteshmani0-droid/Onyx" class="nav-cta">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">BLACK · MIDNIGHT CHERRY · A HINT OF WHITE</p>
+          <h1>Onyx gives your VM <em>hands</em>.</h1>
+          <p class="lead">
+            A voice-first agent harness that lives on an Oracle Cloud VM. Shell, files,
+            screenshots, mouse and keyboard. Reach it from the desktop app, from Telegram
+            on your phone, or from a terminal. Same memory, same tools, same session.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/reteshmani0-droid/Onyx">View on GitHub</a>
+            <a class="btn btn-ghost" href="#start">Quick start</a>
+          </div>
+          <div class="hero-meta">
+            <span>MIT licensed</span>
+            <span>·</span>
+            <span>Node 20+</span>
+            <span>·</span>
+            <span>OpenAI / Ollama / mock</span>
+          </div>
+        </div>
+        <div class="hero-orb">
+          <div class="orb">
+            <span class="halo"></span>
+            <span class="ring ring--outer"></span>
+            <span class="ring ring--inner"></span>
+            <span class="core">
+              <span class="glint"></span>
+            </span>
+          </div>
+          <p class="orb-caption">ONYX · linked</p>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <h2>What it does</h2>
+        <div class="feature-grid">
+          <article>
+            <h3>Agent with hands</h3>
+            <p>Hermes loop with streaming turns, tool calls, approvals and audits. Shell, files, system info, desktop control, and anything an MCP server exposes.</p>
+          </article>
+          <article>
+            <h3>Phone control</h3>
+            <p>Telegram text, voice notes, photos, <code>/screen</code>, <code>/status</code>, and approvals in your pocket. Pair with a single-use code.</p>
+          </article>
+          <article>
+            <h3>Voice-first desktop</h3>
+            <p>Electron + React shell with push-to-talk, a remote cursor, mini orb mode, and approval cards. Hold space, speak, done.</p>
+          </article>
+          <article>
+            <h3>MCP connectors</h3>
+            <p>Stdio and streamable HTTP. Hot-reloadable, namespaced, dead-server tolerant. <code>onyx mcp add …</code></p>
+          </article>
+          <article>
+            <h3>Pluggable models</h3>
+            <p>OpenAI-compatible endpoints, local Ollama, or an offline mock. Move inference between the VM and a remote host without restarting.</p>
+          </article>
+          <article>
+            <h3>One gateway</h3>
+            <p>HTTP REST + SSE, WebSocket hub, Telegram bridge, hashed device tokens, single-use pairing codes. One process, one owner.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="start" class="section section--dark">
+        <h2>Quick start</h2>
+        <ol class="steps">
+          <li><code>git clone https://github.com/reteshmani0-droid/Onyx.git && cd Onyx</code></li>
+          <li><code>npm install && npm run build</code></li>
+          <li><code>node apps/vm/dist/index.js init</code></li>
+          <li>Edit <code>.env</code>, then <code>node apps/vm/dist/index.js doctor</code></li>
+          <li><code>node apps/vm/dist/index.js serve</code></li>
+        </ol>
+        <p class="note">
+          Pair a phone with <code>onyx pair</code>, or open the desktop app and paste the
+          gateway URL and token. Full walkthrough:
+          <a href="https://github.com/reteshmani0-droid/Onyx/blob/main/docs/VM-SETUP.md">VM setup</a>.
+        </p>
+      </section>
+
+      <section id="screens" class="section">
+        <h2>Screens</h2>
+        <div class="gallery">
+          <figure><img src="assets/home.png" alt="Onyx home — empty state" /><figcaption>Home</figcaption></figure>
+          <figure><img src="assets/chat.png" alt="Onyx chat transcript" /><figcaption>Conversation</figcaption></figure>
+          <figure><img src="assets/connect.png" alt="Onyx connect screen" /><figcaption>Connect</figcaption></figure>
+          <figure><img src="assets/settings.png" alt="Onyx settings drawer" /><figcaption>Console</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section section--dark">
+        <h2>Architecture</h2>
+        <pre class="arch">packages/protocol   shared types and wire events
+packages/core       Hermes loop, providers, tools, MCP, approvals, storage
+packages/server     HTTP/SSE, WebSocket hub, Telegram bridge
+apps/vm             CLI and service entry point
+apps/desktop        Electron + React voice-first shell</pre>
+        <p class="note">
+          One gateway, several doors. The VM owns state; every client is a view onto the
+          same sessions, tools and approvals. See
+          <a href="https://github.com/reteshmani0-droid/Onyx/blob/main/docs/ARCHITECTURE.md">architecture docs</a>.
+        </p>
+      </section>
+
+      <section class="cta">
+        <h2>Build your own Onyx.</h2>
+        <p>MIT licensed. Clone, build, run. The gateway is loopback by default — put TLS
+        in front of it and treat it like SSH.</p>
+        <a class="btn btn-primary" href="https://github.com/reteshmani0-droid/Onyx">Clone the repo</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>Onyx · midnight cherry</span>
+      <span>MIT · <a href="https://github.com/reteshmani0-droid/Onyx">github.com/reteshmani0-droid/Onyx</a></span>
+    </footer>
+  </body>
+</html>
