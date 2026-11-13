@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07050a" />
+    <meta name="color-scheme" content="dark" />
     <title>Onyx — a midnight-cherry agent harness for your VM</title>
     <meta name="description" content="Onyx lives on your VM. It gives a model hands — shell, files, screenshots, mouse and keyboard — and lets you reach it from a voice-first desktop app, Telegram, or a terminal." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238e0e2e'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ff3d6e'/%3E%3C/svg%3E" />
@@ -14,8 +16,10 @@
   <body>
     <div class="grain" aria-hidden="true"></div>
 
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <header class="nav">
-      <div class="brand"><span class="mark">◍</span><span>ONYX</span></div>
+      <div class="brand" translate="no"><span class="mark" aria-hidden="true">◍</span><span>ONYX</span></div>
       <nav>
         <a href="#features">Features</a>
         <a href="#start">Quick start</a>
@@ -24,7 +28,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
         <div class="hero-copy">
           <h1>Onyx gives your VM <em>hands</em>.</h1>
@@ -105,10 +109,10 @@
       <section id="screens" class="section">
         <h2>Screens</h2>
         <div class="gallery">
-          <figure><img src="assets/home.png" alt="Onyx home — empty state" /><figcaption>Home</figcaption></figure>
-          <figure><img src="assets/chat.png" alt="Onyx chat transcript" /><figcaption>Conversation</figcaption></figure>
-          <figure><img src="assets/connect.png" alt="Onyx connect screen" /><figcaption>Connect</figcaption></figure>
-          <figure><img src="assets/settings.png" alt="Onyx settings drawer" /><figcaption>Console</figcaption></figure>
+          <figure><img src="assets/home.png" alt="Onyx home — empty state" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Home</figcaption></figure>
+          <figure><img src="assets/chat.png" alt="Onyx chat transcript" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Conversation</figcaption></figure>
+          <figure><img src="assets/connect.png" alt="Onyx connect screen" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Connect</figcaption></figure>
+          <figure><img src="assets/settings.png" alt="Onyx settings drawer" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Console</figcaption></figure>
         </div>
       </section>
 
